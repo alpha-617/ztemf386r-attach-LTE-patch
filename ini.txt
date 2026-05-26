@@ -1,15 +1,15 @@
 /lib/netifd/proto/ncm.sh
-pada line
-    manufacturer=$(gcom -d "$device" -s /etc/gcom/getcardinfo.gcom | awk 'NF && $0 !~ /AT\+CGMI/ { sub(/\+CGMI: /,""); print tolower($1); exit; }' | tr -d '\r\n')
+di method proto_ncm_setup(), ubah pada line
+       manufacturer=$(gcom -d "$device" -s /etc/gcom/getcardinfo.gcom | awk 'NF && $0 !~ /AT\+CGMI/ { sub(/\+CGMI: /,""); print              tolower($1); exit; }' | tr -d '\r\n')
                 [ "$manufacturer" = "error" ] && {
                         manufacturer=""
                 }
 
-Method 1: Pakai hardcode
+Method Ubah 1: Pakai hardcode
 manufacturer="zte"
 
 atau:
-Methode 2, Pakai wait + retry.
+Methode Ubah 2, Pakai wait + retry.
 manufacturer=""
 
 for i in 1 2 3 4 5; do
