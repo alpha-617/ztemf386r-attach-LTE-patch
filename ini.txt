@@ -1,6 +1,6 @@
 /lib/netifd/proto/ncm.sh
 di method proto_ncm_setup(), ubah pada line
-       manufacturer=$(gcom -d "$device" -s /etc/gcom/getcardinfo.gcom | awk 'NF && $0 !~ /AT\+CGMI/ { sub(/\+CGMI: /,""); print              tolower($1); exit; }' | tr -d '\r\n')
+       manufacturer=$(gcom -d "$device" -s /etc/gcom/getcardinfo.gcom | awk 'NF && $0 !~ /AT\+CGMI/ { sub(/\+CGMI: /,""); print tolower($1); exit; }' | tr -d '\r\n')
                 [ "$manufacturer" = "error" ] && {
                         manufacturer=""
                 }
